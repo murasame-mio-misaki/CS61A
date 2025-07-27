@@ -324,10 +324,12 @@ def boar_strategy(score, opponent_score, threshold=11, num_rolls=6):
 def sus_strategy(score, opponent_score, threshold=11, num_rolls=6):
     """This strategy returns 0 dice when your score would increase by at least threshold."""
     # BEGIN PROBLEM 11
-    '''*** YOUR CODE HERE ***'''
+    if sus_update(0, score, opponent_score) - score >= threshold:
+        return 0
+    return num_rolls
     # END PROBLEM 11
 
-print(sus_strategy(30, 41, threshold=10, num_rolls=2))
+
 
 def final_strategy(score, opponent_score):
     """Write a brief description of your final strategy.
@@ -338,7 +340,7 @@ def final_strategy(score, opponent_score):
     return 6  # Remove this line once implemented.
     # END PROBLEM 12
 
-
+print(sus_strategy(14, 21, threshold=12, num_rolls=5))
 ##########################
 # Command Line Interface #
 ##########################
